@@ -1,0 +1,244 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bridge Results India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* HEADER */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 15px 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav a {
+      color: #cbd5f5;
+      margin-left: 15px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .primary {
+      background: #f59e0b;
+      color: white;
+    }
+
+    .secondary {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    /* SECTION */
+    .section {
+      margin: 40px auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    /* FEATURED */
+    .featured {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .featured-main {
+      flex: 2;
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .featured-side {
+      flex: 1;
+    }
+
+    .mini-card {
+      background: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    /* LIST */
+    .list-item {
+      display: flex;
+      gap: 15px;
+      padding: 10px;
+      background: white;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <h2>Bridge Results India</h2>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Tournaments</a>
+      <a href="#">Calendar</a>
+      <a href="#">Articles</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Indian Bridge Results & Analysis</h1>
+    <p>Your trusted source for tournament results and updates</p>
+    <button class="primary">Latest Results</button>
+    <button class="secondary">Upcoming Events</button>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="container section">
+  <h2>🏆 Latest Tournament</h2>
+
+  <div class="featured">
+    <div class="featured-main">
+      <h3>Steel Strips Open 2026</h3>
+      <p>Chandigarh • April 2026</p>
+      <br>
+      <p>🥇 Shivam Ahuja – Pranav Khandelwal</p>
+      <p>🥈 Brijesh Kakar – Rajat Naik</p>
+      <p>🥉 Akshay Shah – Joydeep Mukherjee</p>
+      <br>
+      <button class="primary">View Results</button>
+    </div>
+
+    <div class="featured-side">
+      <div class="mini-card">Mohanlal Bhartia Grand Prix – Delhi</div>
+      <div class="mini-card">Dr RN Singhal Memorial – Lucknow</div>
+      <div class="mini-card">Sir Padampat Singhania – Kanpur</div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT -->
+<section class="container section">
+  <h2>Recent Results</h2>
+
+  <div class="grid">
+    <div class="card">All India Pairs – Bangalore</div>
+    <div class="card">New Year Pairs – Kolkata</div>
+    <div class="card">Gwalior Open</div>
+    <div class="card">Vijay Hazare Pairs – Pune</div>
+  </div>
+</section>
+
+<!-- UPCOMING -->
+<section class="container section">
+  <h2>Upcoming Tournaments</h2>
+
+  <div class="list-item">
+    <strong>May 02–04</strong>
+    <p>South Zone Pairs – Hyderabad</p>
+  </div>
+
+  <div class="list-item">
+    <strong>May 09–11</strong>
+    <p>Southern India Teams – Chennai</p>
+  </div>
+
+  <div class="list-item">
+    <strong>May 16–18</strong>
+    <p>Delhi State Championship</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Bridge Results India</p>
+</footer>
+
+</body>
+</html>
+```
