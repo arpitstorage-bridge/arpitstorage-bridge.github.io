@@ -1,17 +1,139 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Players</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: #0f172a;
+      padding: 15px 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav a {
+      color: #cbd5f5;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+
+    h1 {
+      color: white;
+      margin: 0;
+    }
+
+    .section {
+      margin: 40px auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #1e3a8a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Players</h1>
+<header>
+  <div class="container nav">
+    <h1>Bridge Results</h1>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="players.html">Players</a>
+    </div>
+  </div>
+</header>
 
-<p>Shivam Ahuja</p>
-<p>Pranav Khandelwal</p>
-<p>Brijesh Kakar</p>
+<section class="container section">
+  <h2>👤 Players</h2>
 
-<a href="index.html">⬅ Back to Home</a>
+  <div class="grid">
+
+    <div class="card">
+      <div class="avatar">SA</div>
+      <h3>Shivam Ahuja</h3>
+      <p>Top Indian Player</p>
+    </div>
+
+    <div class="card">
+      <div class="avatar">PK</div>
+      <h3>Pranav Khandelwal</h3>
+      <p>National Champion</p>
+    </div>
+
+    <div class="card">
+      <div class="avatar">BK</div>
+      <h3>Brijesh Kakar</h3>
+      <p>Experienced Player</p>
+    </div>
+
+    <div class="card">
+      <div class="avatar">RS</div>
+      <h3>Shantanu Rastogi</h3>
+      <p>Bridge Analyst</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Bridge Results India</p>
+</footer>
 
 </body>
 </html>
+```
