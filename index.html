@@ -16,7 +16,23 @@
       box-sizing:border-box;
       font-family:'Inter',sans-serif;
     }
+<script>
 
+window.addEventListener("scroll", function(){
+
+  const header = document.querySelector("header");
+
+  if(window.scrollY > 50){
+    header.style.background = "rgba(15,23,42,0.95)";
+    header.style.backdropFilter = "blur(8px)";
+  }
+  else{
+    header.style.background = "transparent";
+  }
+
+});
+
+</script>
     body{
       background:#f8fafc;
       color:#1e293b;
@@ -30,14 +46,14 @@
 
     /* HEADER */
 
-    header{
-      position:fixed;
-      width:100%;
-      top:0;
-      z-index:1000;
-      background:rgba(15,23,42,0.9);
-      backdrop-filter:blur(8px);
-    }
+  header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  background:transparent;
+  transition:0.4s;
+}
 
     .nav{
       display:flex;
