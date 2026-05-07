@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,214 +9,482 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
     }
 
-    body {
-      background: #f8fafc;
-      color: #1e293b;
+    body{
+      background:#f8fafc;
+      color:#1e293b;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
     }
 
     /* HEADER */
-    header {
-      background: #0f172a;
-      color: white;
-      padding: 15px 0;
+
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.9);
+      backdrop-filter:blur(8px);
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
     }
 
-    .nav a {
-      color: #cbd5f5;
-      margin-left: 15px;
-      text-decoration: none;
-      font-size: 14px;
+    .logo{
+      color:white;
+      font-size:24px;
+      font-weight:700;
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(to right, #0f172a, #1e3a8a);
-      color: white;
-      padding: 60px 0;
-      text-align: center;
+    .nav-links a{
+      color:#e2e8f0;
+      text-decoration:none;
+      margin-left:22px;
+      font-size:15px;
+      transition:0.3s;
     }
 
-    .hero h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .nav-links a:hover{
+      color:#f59e0b;
     }
 
-    .hero p {
-      margin-bottom: 20px;
+    /* HERO SLIDER */
+
+    .hero{
+      position:relative;
+      width:100%;
+      height:100vh;
+      overflow:hidden;
     }
 
-    button {
-      padding: 10px 15px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      margin: 5px;
+    .slide{
+      position:absolute;
+      width:100%;
+      height:100%;
+      opacity:0;
+      transition:opacity 1s ease-in-out;
     }
 
-    .primary {
-      background: #f59e0b;
-      color: white;
+    .slide.active{
+      opacity:1;
     }
 
-    .secondary {
-      background: transparent;
-      border: 1px solid white;
-      color: white;
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+
+    .hero-content{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      z-index:10;
+      color:white;
+      text-align:center;
+      width:90%;
+    }
+
+    .hero-content h1{
+      font-size:60px;
+      margin-bottom:20px;
+      font-weight:700;
+      text-shadow:0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-content p{
+      font-size:22px;
+      margin-bottom:30px;
+      color:#e2e8f0;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border:none;
+      border-radius:40px;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:#f59e0b;
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:#d97706;
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:1px solid white;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:white;
+      color:#0f172a;
+    }
+
+    /* SLIDER DOTS */
+
+    .dots{
+      position:absolute;
+      bottom:30px;
+      width:100%;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      z-index:20;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.5);
+      transition:0.3s;
+    }
+
+    .dot.active{
+      background:white;
+      transform:scale(1.2);
     }
 
     /* SECTION */
-    .section {
-      margin: 40px auto;
+
+    .section{
+      padding:70px 0;
     }
 
-    h2 {
-      margin-bottom: 20px;
+    .section-title{
+      font-size:32px;
+      margin-bottom:30px;
+      font-weight:700;
     }
 
     /* FEATURED */
-    .featured {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+
+    .featured{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:25px;
     }
 
-    .featured-main {
-      flex: 2;
-      background: #1e3a8a;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
+    .featured-main{
+      background:linear-gradient(135deg,#1e3a8a,#2563eb);
+      color:white;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(37,99,235,0.25);
     }
 
-    .featured-side {
-      flex: 1;
+    .featured-main h3{
+      font-size:30px;
+      margin-bottom:10px;
     }
 
-    .mini-card {
-      background: white;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 8px;
+    .featured-main p{
+      margin-bottom:10px;
+      line-height:1.6;
+    }
+
+    .featured-side{
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    .mini-card{
+      background:white;
+      padding:20px;
+      border-radius:16px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      transition:0.3s;
+    }
+
+    .mini-card:hover{
+      transform:translateY(-4px);
     }
 
     /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
     }
 
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.06);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
     }
 
     /* LIST */
-    .list-item {
-      display: flex;
-      gap: 15px;
-      padding: 10px;
-      background: white;
-      margin-bottom: 10px;
-      border-radius: 8px;
+
+    .list-item{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      background:white;
+      padding:20px;
+      border-radius:16px;
+      margin-bottom:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .list-item strong{
+      color:#2563eb;
+      min-width:100px;
     }
 
     /* FOOTER */
-    footer {
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+
+    footer{
+      background:#0f172a;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
     }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero-content h1{
+        font-size:40px;
+      }
+
+      .hero-content p{
+        font-size:18px;
+      }
+
+      .featured{
+        grid-template-columns:1fr;
+      }
+
+      .nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .nav-links{
+        text-align:center;
+      }
+
+      .nav-links a{
+        margin:0 8px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
+
 <header>
   <div class="container nav">
-    <h2>Bridge Results India</h2>
-    <div>
-         <a href="index.html">Home</a>
-<a href="tournaments.html">Tournaments</a>
-<a href="players.html">Players</a>
-<a href="results.html">Results</a>
-<a href="events.html">Events</a>
+
+    <div class="logo">
+      Bridge Results India
     </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="players.html">Players</a>
+      <a href="results.html">Results</a>
+      <a href="events.html">Events</a>
+    </div>
+
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO SLIDER -->
+
 <section class="hero">
-  <div class="container">
-    <h1>Indian Bridge Results & Analysis</h1>
-    <p>Your trusted source for tournament results and updates</p>
-    <button class="primary">Latest Results</button>
-    <button class="secondary">Upcoming Events</button>
+
+  <!-- IMAGE 1 -->
+  <div class="slide active">
+    <img src="images/bridge1.jpg" alt="">
+    <div class="overlay"></div>
   </div>
+
+  <!-- IMAGE 2 -->
+  <div class="slide">
+    <img src="images/bridge2.jpg" alt="">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="slide">
+    <img src="images/bridge3.jpg" alt="">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- IMAGE 4 -->
+  <div class="slide">
+    <img src="images/bridge4.jpg" alt="">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- IMAGE 5 -->
+  <div class="slide">
+    <img src="images/bridge5.jpg" alt="">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- HERO CONTENT -->
+
+  <div class="hero-content">
+    <h1>Indian Bridge Results & Analysis</h1>
+
+    <p>
+      Your trusted source for tournament results, rankings and bridge events
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn btn-primary">Latest Results</button>
+      <button class="btn btn-secondary">Upcoming Events</button>
+    </div>
+  </div>
+
+  <!-- DOTS -->
+
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
 </section>
 
 <!-- FEATURED -->
+
 <section class="container section">
-  <h2>🏆 Latest Tournament</h2>
+
+  <h2 class="section-title">🏆 Latest Tournament</h2>
 
   <div class="featured">
+
     <div class="featured-main">
+
       <h3>Steel Strips Open 2026</h3>
+
       <p>Chandigarh • April 2026</p>
+
       <br>
+
       <p>🥇 Shivam Ahuja – Pranav Khandelwal</p>
       <p>🥈 Brijesh Kakar – Rajat Naik</p>
       <p>🥉 Akshay Shah – Joydeep Mukherjee</p>
+
       <br>
-      <button class="primary">View Results</button>
+
+      <button class="btn btn-primary">
+        View Results
+      </button>
+
     </div>
 
     <div class="featured-side">
-      <div class="mini-card">Mohanlal Bhartia Grand Prix – Delhi</div>
-      <div class="mini-card">Dr RN Singhal Memorial – Lucknow</div>
-      <div class="mini-card">Sir Padampat Singhania – Kanpur</div>
+
+      <div class="mini-card">
+        Mohanlal Bhartia Grand Prix – Delhi
+      </div>
+
+      <div class="mini-card">
+        Dr RN Singhal Memorial – Lucknow
+      </div>
+
+      <div class="mini-card">
+        Sir Padampat Singhania – Kanpur
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- RECENT -->
+
 <section class="container section">
-  <h2>Recent Results</h2>
+
+  <h2 class="section-title">Recent Results</h2>
 
   <div class="grid">
-    <div class="card">All India Pairs – Bangalore</div>
-    <div class="card">New Year Pairs – Kolkata</div>
-    <div class="card">Gwalior Open</div>
-    <div class="card">Vijay Hazare Pairs – Pune</div>
+
+    <div class="card">
+      All India Pairs – Bangalore
+    </div>
+
+    <div class="card">
+      New Year Pairs – Kolkata
+    </div>
+
+    <div class="card">
+      Gwalior Open
+    </div>
+
+    <div class="card">
+      Vijay Hazare Pairs – Pune
+    </div>
+
   </div>
+
 </section>
 
 <!-- UPCOMING -->
+
 <section class="container section">
-  <h2>Upcoming Tournaments</h2>
+
+  <h2 class="section-title">Upcoming Tournaments</h2>
 
   <div class="list-item">
     <strong>May 02–04</strong>
@@ -233,13 +500,54 @@
     <strong>May 16–18</strong>
     <p>Delhi State Championship</p>
   </div>
+
 </section>
 
 <!-- FOOTER -->
+
 <footer>
   <p>© 2026 Bridge Results India</p>
 </footer>
 
+<!-- SLIDER SCRIPT -->
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let currentSlide = 0;
+
+function showSlide(index){
+
+  slides.forEach(slide => {
+    slide.classList.remove("active");
+  });
+
+  dots.forEach(dot => {
+    dot.classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+}
+
+function nextSlide(){
+
+  currentSlide++;
+
+  if(currentSlide >= slides.length){
+    currentSlide = 0;
+  }
+
+  showSlide(currentSlide);
+}
+
+/* CHANGE IMAGE EVERY 3 SECONDS */
+
+setInterval(nextSlide, 3000);
+
+</script>
+
 </body>
 </html>
-```
